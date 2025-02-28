@@ -1,0 +1,1 @@
+color pallete: https://colorhunt.co/palette/201e43134b70508c9beeeeee
