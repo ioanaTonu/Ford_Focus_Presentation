@@ -2,6 +2,7 @@ body {
   background-color: #DEECFC;
   padding: 10rem;
   padding-top: 0%;
+  font-size: 1.2rem;
 }
 
 /* navigation bar */
@@ -224,4 +225,70 @@ th {
   font-weight: bold;
   text-align: center;
   font-family: "Monaco";
+}
+
+
+.animated-text {
+  font-size: 30px;
+  font-weight: bold;
+  color: #201E43; /* Culoarea textului */
+  display: inline-block; /* Rămâne pe aceeași linie */
+  opacity: 0; /* Inițial ascuns */
+  animation: fadeInSlide 2s ease-in-out forwards;
+  text-align: center;
+}
+
+/* Animația de apariție și alunecare ușoară */
+@keyframes fadeInSlide {
+  0% {
+      opacity: 0;
+      transform: translateY(20px);
+  }
+  100% {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+.centerImage{
+  text-align: center;
+}
+
+.formLogIn {
+  max-width: 2000px;
+  margin: 40px auto;
+  background: #DEECFC;
+  margin-inline: 20rem;
+  border-radius: 10px;
+}
+
+.formLogIn label{
+  font-size: 20px;
+  line-height: 3rem;
+  color: #134B70;
+  text-align: center;
+  font-family: "Monaco";
+  font-weight: bold;
+}
+
+.formLogIn input{
+  background-color: #DEECFC;
+  color: #134B70;
+  border: 0.1rem solid #201E43;
+  border-radius: 0.3rem;
+  width: 80%;
+  margin-inline: 4rem;
+}
+
+.submitButton {
+  background-color: #DEECFC;
+  color: #134B70;
+  margin-inline: 40px;
+  text-align: center;
+}
+.medianMenu {
+  background-color: #DEECFC;
+  color: #134B70;
+  /* max-width: fit-content;
+  margin-inline: auto; */
 }
