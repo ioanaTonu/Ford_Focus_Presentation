@@ -286,13 +286,6 @@ th {
 .formGeneral .submitButton {
   background-color: #DEECFC;
   color: #134B70;
-  margin-inline: 40px;
-  text-align: center;
+  cursor: pointer;
 }
 
-.medianMenu {
-  background-color: #DEECFC;
-  color: #134B70;
-  /* max-width: fit-content;
-  margin-inline: auto; */
-}
