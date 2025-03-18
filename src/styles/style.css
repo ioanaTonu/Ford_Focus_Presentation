@@ -323,3 +323,25 @@ select option {
   padding: 0.5rem;
 }
 
+.flex-container {
+  display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    gap: 2rem; 
+    padding: 2rem;
+    max-width: 90vw; 
+    margin: auto;
+}
+
+.container .text-content {
+  max-width: 50%;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  text-align: justify;
+}
+
+.imageFlex {
+  max-width: 45%; /* Asigură că imaginea ocupă un procent din container */
+  height: auto; /* Păstrează proporțiile */
+  border-radius: 0.5rem; /* Colțuri rotunjite */
+}
