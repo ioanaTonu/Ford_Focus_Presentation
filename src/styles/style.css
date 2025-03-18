@@ -30,6 +30,7 @@ h2 {
   font-size: 22px;
   margin-top: 20px;
   font-family: "Monaco";
+  font-style: italic;
 }
 
 p {
@@ -344,4 +345,22 @@ select option {
   max-width: 45%; /* Asigură că imaginea ocupă un procent din container */
   height: auto; /* Păstrează proporțiile */
   border-radius: 0.5rem; /* Colțuri rotunjite */
+}
+
+.image-links {
+  justify-content: center;
+  gap: 1.5rem; /* Spațiu între imagini */
+  padding: 2rem;
+}
+
+.image-links a img {
+  width: 50%; 
+  height: auto;
+  border-radius: 0.5rem; /* Colțuri ușor rotunjite */
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Efect hover - imaginea se mărește ușor */
+.image-links a img:hover {
+  transform: scale(1.1);
 }
