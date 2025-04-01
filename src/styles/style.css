@@ -77,8 +77,16 @@ li a:hover {
     background-color: #DEECFC;
 }
 
+.logo-item a {
+  padding: 0 !important;
+  background-color: transparent !important;
+  display: inline-block !important;
+}
+
 .logo-item a:hover {
   background-color: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
 }
 
 
