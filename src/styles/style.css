@@ -33,13 +33,6 @@ h2 {
   font-style: italic;
 }
 
-h5 {
-  color: #ffffff;
-  font-size: 22px;
-  margin-top: 20px;
-  font-family: "Monaco";
-}
-
 p {
   font-size: 20px;
   line-height: 1.6;
@@ -351,6 +344,25 @@ select option {
   padding: 0.5rem;
 }
 
+.flex-container-review {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.flex-container-review p {
+  margin: 0; /* elimină spațiul default de sus/jos */
+  font-family: "Monaco";
+  color: #134B70;
+}
+
+.flex-container-review h5 {
+  margin: 0; /* elimină spațiul default de sus/jos */
+  font-family: "Monaco";
+  color: #201E43;
+  font-size: x-large;
+}
+
 .flex-container {
   display: flex; 
     justify-content: space-between; 
@@ -365,7 +377,6 @@ select option {
   flex: 1;
   text-align: center; /* opțional – pentru aliniere frumoasă */
 }
-
 
 .logo-wrapper {
   display: flex;
@@ -468,4 +479,7 @@ select option {
   border-radius: 4px;
 }
 
+.checked {
+  color: orange;
+}
 
