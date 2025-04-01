@@ -50,6 +50,12 @@ img {
   border-radius: 10px;
 }
 
+a:link {
+  color: #201E43;
+  background-color: transparent;
+  text-decoration: none;
+}
+
 ul {
     list-style-type: none;
     margin: 0;
@@ -346,6 +352,18 @@ select option {
     padding: 2rem;
     max-width: 90vw; 
     margin: auto;
+}
+
+.flex-container > div {
+  flex: 1;
+  text-align: center; /* opțional – pentru aliniere frumoasă */
+}
+
+
+.logo-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .container .text-content {
