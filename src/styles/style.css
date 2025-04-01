@@ -454,3 +454,16 @@ select option {
   transform: translateY(-5px);
   background-color: #f5faff;
 }
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #B9CEEB;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #134B70;
+  border-radius: 4px;
+}
