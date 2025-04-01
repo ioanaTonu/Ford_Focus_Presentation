@@ -33,6 +33,13 @@ h2 {
   font-style: italic;
 }
 
+h5 {
+  color: #ffffff;
+  font-size: 22px;
+  margin-top: 20px;
+  font-family: "Monaco";
+}
+
 p {
   font-size: 20px;
   line-height: 1.6;
@@ -48,6 +55,12 @@ p {
 
 img {
   border-radius: 10px;
+}
+
+a:link {
+  color: #201E43;
+  background-color: transparent;
+  text-decoration: none;
 }
 
 ul {
@@ -76,6 +89,19 @@ li a {
 li a:hover {
     background-color: #DEECFC;
 }
+
+.logo-item a {
+  padding: 0 !important;
+  background-color: transparent !important;
+  display: inline-block !important;
+}
+
+.logo-item a:hover {
+  background-color: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
 
 * {box-sizing:border-box}
 
@@ -335,6 +361,18 @@ select option {
     margin: auto;
 }
 
+.flex-container > div {
+  flex: 1;
+  text-align: center; /* opțional – pentru aliniere frumoasă */
+}
+
+
+.logo-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .container .text-content {
   max-width: 50%;
   font-size: 1.2rem;
@@ -364,4 +402,55 @@ select option {
 /* Efect hover - imaginea se mărește ușor */
 .image-links a img:hover {
   transform: scale(1.1);
+}
+
+
+.benefits-section {
+  background: transparent !important;
+  padding: 3rem 2rem;
+  margin: 4rem auto;
+  font-family: "Monaco";
+  color: #134B70;
+  text-align: center;
+}
+
+.benefits-section h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  font-style: italic;
+  color: #ffffff;
+}
+
+.benefit-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+  padding: 0 1rem;
+}
+
+.benefit-card {
+  background-color: #ffffff;
+  border: 1px solid #134B70;
+  border-radius: 10px;
+  padding: 1.5rem;
+  transition: transform 0.3s ease-in-out;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.benefit-card h3 {
+  color: #201E43;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.benefit-card p {
+  color: #134B70;
+  font-size: 1rem;
+  font-weight: normal;
+  text-align: justify;
+}
+
+.benefit-card:hover {
+  transform: translateY(-5px);
+  background-color: #f5faff;
 }
