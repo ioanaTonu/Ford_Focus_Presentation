@@ -12,25 +12,8 @@
 
 <body>
   <!-- HEADER -->
-  <div>
-    <ul>
-      <li class="logo-item">
-        <a href="../../index.html">
-          <img src="../images/logo.png" alt="logo" width="260" height="52">
-        </a>
-      </li>
 
-      <li><a href="../../index.html">Home</a></li>
-      <li><a href="./shop.html">Shop</a></li>
-      <li><a href="./review.html">Review</a></li>
-      <li><a href="./history.html">History</a></li>
-      <li><a href="./testdrive.html">TestDrive</a></li>
-      <li><a href="./contact.html">Contact</a></li>
-
-      <li><a href="./login.html">LogIn</a></li>
-      <li><a href="./signup.html">Register</a></li>
-    </ul>
-  </div>
+  <?php include("../header.php"); ?> 
 
   <!-- END HEADER -->
   <!-- MAIN -->
@@ -78,22 +61,9 @@
     </table>
   </div>
   <!-- END MAIN -->
+   
   <!-- FOOTER -->
-  <div class="flex-container">
-    <div class="text-content">
-      <p> Created as part of a student project at <a href="https://ac.tuiasi.ro/" target="_blank">Faculty of Automatic
-          Control and Computer Engineering</a> by Ioana - Alexandra Costîn and Sebastian Tonu. </p>
-    </div>
-
-    <div class="logo-wrapper">
-      <img src="../images/logo_simple.png" alt="logo" width="260" height="200">
-    </div>
-
-    <div class="text-content">
-      <p><a href="https://www.linkedin.com/in/ioana-tonu-ba7244229/" target="_blank">🌐</a>LinkedIn Ioana</p>
-      <p><a href="https://www.linkedin.com/in/sebastian-tonu-831a09145/" target="_blank">🌐</a>LinkedIn Sebastian</p>
-    </div>
-  </div>
+  <?php include("../footer.php"); ?> 
   <!-- END FOOTER -->
 </body>
 

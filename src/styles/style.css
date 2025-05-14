@@ -255,9 +255,9 @@ th {
 .animated-text {
   font-size: 30px;
   font-weight: bold;
-  color: #201E43; /* Culoarea textului */
-  display: inline-block; /* Rămâne pe aceeași linie */
-  opacity: 0; /* Inițial ascuns */
+  color: #201E43; 
+  display: inline-block; 
+  opacity: 0; 
   animation: fadeInSlide 2s ease-in-out forwards;
   text-align: center;
 }
@@ -328,15 +328,14 @@ select {
   border: 0.1rem solid #134B70;
   border-radius: 0.5rem;
   padding: 0.5rem 1rem;
-  width: 100%; /* Se potrivește cu dimensiunea input-urilor */
-  max-width: 20rem; /* Limitează lățimea */
+  width: 100%;
+  max-width: 20rem; 
   display: block;
-  margin: auto; /* Îl centrează */
+  margin: auto; 
   cursor: pointer;
   outline: none;
 }
 
-/* Stil pentru opțiunile din dropdown */
 select option {
   font-size: 1rem;
   color: #201E43;
@@ -351,13 +350,13 @@ select option {
 }
 
 .flex-container-review p {
-  margin: 0; /* elimină spațiul default de sus/jos */
+  margin: 0; 
   font-family: "Monaco";
   color: #134B70;
 }
 
 .flex-container-review h5 {
-  margin: 0; /* elimină spațiul default de sus/jos */
+  margin: 0; 
   font-family: "Monaco";
   color: #201E43;
   font-size: x-large;
@@ -375,7 +374,7 @@ select option {
 
 .flex-container > div {
   flex: 1;
-  text-align: center; /* opțional – pentru aliniere frumoasă */
+  text-align: center; 
 }
 
 .logo-wrapper {
@@ -392,21 +391,21 @@ select option {
 }
 
 .imageFlex {
-  max-width: 45%; /* Asigură că imaginea ocupă un procent din container */
-  height: auto; /* Păstrează proporțiile */
-  border-radius: 0.5rem; /* Colțuri rotunjite */
+  max-width: 45%; 
+  height: auto; 
+  border-radius: 0.5rem; 
 }
 
 .image-links {
   justify-content: center;
-  gap: 1.5rem; /* Spațiu între imagini */
+  gap: 1.5rem; 
   padding: 2rem;
 }
 
 .image-links a img {
   width: 50%; 
   height: auto;
-  border-radius: 0.5rem; /* Colțuri ușor rotunjite */
+  border-radius: 0.5rem; 
   transition: transform 0.3s ease-in-out;
 }
 

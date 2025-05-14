@@ -15,20 +15,20 @@
   <div>
     <ul>
       <li class="logo-item">
-        <a href="index.html">
+        <a href="index.php">
           <img src="./src/images/logo.png" alt="logo" width="260" height="52">
         </a>
       </li>
 
-      <li><a href="index.html">Home</a></li>
-      <li><a href="./src/pages/shop.html">Shop</a></li>
-      <li><a href="./src/pages/review.html">Review</a></li>
-      <li><a href="./src/pages/history.html">History</a></li>
-      <li><a href="./src/pages/testdrive.html">TestDrive</a></li>
-      <li><a href="./src/pages/contact.html">Contact</a></li>
+      <li><a href="index.php">Home</a></li>
+      <li><a href="./src/pages/shop.php">Shop</a></li>
+      <li><a href="./src/pages/review.php">Review</a></li>
+      <li><a href="./src/pages/history.php">History</a></li>
+      <li><a href="./src/pages/testdrive.php">TestDrive</a></li>
+      <li><a href="./src/pages/contact.php">Contact</a></li>
 
-      <li><a href="./src/pages/login.html">LogIn</a></li>
-      <li><a href="./src/pages/signup.html">Register</a></li>
+      <li><a href="./src/pages/login.php">LogIn</a></li>
+      <li><a href="./src/pages/signup.php">Register</a></li>
     </ul>
   </div>
 

@@ -5,30 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="../styles/style.css" rel="stylesheet" type="text/css" />
+    <script src="../functions/index.js" type="text/javascript"> </script>
     <link rel="icon" type="image/x-icon" href="../images/favicon.png">
     <title>History</title>
 </head>
 <body>
-    <!-- HEADER -->
-    <div>
-        <ul>
-          <li class="logo-item">
-            <a href="../../index.html">
-              <img src="../images/logo.png" alt="logo" width="260" height="52">
-            </a>
-          </li>
+     <!-- HEADER -->
 
-            <li><a href="../../index.html">Home</a></li>
-            <li><a href="./shop.html">Shop</a></li>
-            <li><a href="./review.html">Review</a></li>
-            <li><a href="./history.html">History</a></li>
-            <li><a href="./testdrive.html">TestDrive</a></li>
-            <li><a href="./contact.html">Contact</a></li>
+   <?php include("../header.php"); ?> 
 
-            <li><a href="./login.html">LogIn</a></li>
-            <li><a href="./signup.html">Register</a></li>
-        </ul>
-    </div>
     <!-- END HEADER -->
     <!-- MAIN -->
     
@@ -86,7 +71,7 @@
         <p>Over four generations, the Ford Focus has proven to be one of the most successful compact cars in automotive history. With its combination of <span class="highlight">practicality, efficiency, and driving excitement</span>, it continues to be a favorite among drivers worldwide.</p>
         
         <div class="slideshow-container">
-
+            
             <!-- Full-width images with number and caption text -->
             <div class="mySlides fade">
                 <div class="numbertext">1 / 4</div>
@@ -121,55 +106,15 @@
             <span class="dot" onclick="currentSlide(3)"></span>
             <span class="dot" onclick="currentSlide(4)"></span>
         </div>
-    
-        <script>
-            let slideIndex = 1;
-            showSlides(slideIndex);
-            
-            function plusSlides(n) {
-              showSlides(slideIndex += n);
-            }
-            
-            function currentSlide(n) {
-              showSlides(slideIndex = n);
-            }
-            
-            function showSlides(n) {
-              let i;
-              let slides = document.getElementsByClassName("mySlides");
-              let dots = document.getElementsByClassName("dot");
-              if (n > slides.length) {slideIndex = 1}    
-              if (n < 1) {slideIndex = slides.length}
-              for (i = 0; i < slides.length; i++) {
-                slides[i].style.display = "none";  
-              }
-              for (i = 0; i < dots.length; i++) {
-                dots[i].className = dots[i].className.replace(" active", "");
-              }
-              slides[slideIndex-1].style.display = "block";  
-              dots[slideIndex-1].className += " active";
-            }
-            </script>
+        
+        <script src="../functions/index.js" type="text/javascript"></script>
     </div>
     
 
     <!-- END MAIN -->
-    <!-- FOOTER -->
-    <div class="flex-container">
-      <div class="text-content">
-        <p> Created as part of a student project at <a href="https://ac.tuiasi.ro/" target="_blank">Faculty of Automatic
-            Control and Computer Engineering</a> by Ioana - Alexandra Costîn and Sebastian Tonu. </p>
-      </div>
-      
-      <div class="logo-wrapper">
-        <img src="../images/logo_simple.png" alt="logo" width="260" height="200">
-      </div>
-
-      <div class="text-content">
-        <p><a href="https://www.linkedin.com/in/ioana-tonu-ba7244229/" target="_blank" >🌐</a>LinkedIn Ioana</p>
-        <p><a href="https://www.linkedin.com/in/sebastian-tonu-831a09145/" target="_blank">🌐</a>LinkedIn Sebastian</p>
-      </div>
-    </div>
-    <!-- END FOOTER -->
+     
+  <!-- FOOTER -->
+  <?php include("../footer.php"); ?> 
+  <!-- END FOOTER -->
 </body>
 </html>
