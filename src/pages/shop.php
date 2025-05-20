@@ -26,7 +26,7 @@
             <h2>Select everything that is fitted fot you and we help you a good deal.</h2>
         </div>
 
-        <form class="formGeneral" action="" method="get" enctype="multipart/form-data">
+        <form class="formGeneral" action="shop.php" method="post" enctype="multipart/form-data">
             <label for="model"> Model </label> 
             <select name="model" id="model">
                 <option value="any">Any</option>
@@ -81,57 +81,88 @@
             <label for="emission-class">Emission Class (EU)</label> 
             <select name="emission-class" id="emission-class">
                 <option value="any">Any</option>
-                <option value="euro1">Euro 1</option>
-                <option value="euro2">Euro 2</option>
-                <option value="euro3">Euro 3</option>
-                <option value="euro4">Euro 4</option>
-                <option value="euro5">Euro 5</option>
-                <option value="euro6">Euro 6</option>
-                <option value="euro6d-temp">Euro 6d-TEMP</option>
-                <option value="euro6d">Euro 6d</option>
+                <option value="Euro 1">Euro 1</option>
+                <option value="Euro 2">Euro 2</option>
+                <option value="Euro 3">Euro 3</option>
+                <option value="Euro 4">Euro 4</option>
+                <option value="Euro 5">Euro 5</option>
+                <option value="Euro 6">Euro 6</option>
+                <option value="Euro 6d-temp">Euro 6d-TEMP</option>
+                <option value="Euro6 d">Euro 6d</option>
             </select>
 
             
             <br> <br>
             <div class="submitButton">
                 <div class="centerDiv">
-                    <input type="submit" value="Search">
+                  <input type="submit" name="Search" value="Search">
                 </div>
                 <br>
             </div>
 
         </form>
-        
-        <div class="car-card">
-            <img class="car-image" src="../images/carShop4999.jpeg" alt="Ford Focus">
-            <div class="car-info">
-              <div class="car-title">Ford Focus C-Max</div>
-              <div class="car-subtitle">used</div>
-              <div class="car-price">4 999 €</div>
-              <br><br><br><br>
-              <div class="car-location">Rome, Italy</div>
-              <div class="car-mileage">
-                <img src="../images/kmLogo.png" alt="Odometer">
-                102 500 km
-              </div>
-            </div>
-          </div>
 
-          <div class="car-card">
-            <img class="car-image" src="../images/carShop4500.jpg" alt="Ford Focus">
-            <div class="car-info">
-              <div class="car-title">Ford Focus Hatchback</div>
-              <div class="car-subtitle">used</div>
-              <div class="car-price">4 500 €</div>
-              <br><br><br><br>
-              <div class="car-location">Berlin, Germany</div>
-              <div class="car-mileage">
+<?php
+$con = mysqli_connect("localhost", "root", "");
+if (!$con) 
+{
+  die('Connection didn t happen!' . mysqli_error());
+}
+          
+mysqli_select_db($con, "fordfocuspres");
+
+if (isset($_POST["Search"])) {
+  $conditions = [];
+
+  if ($_POST["model"] != "any") {
+    $conditions[] = "model = '" . $_POST["model"] . "'";
+  }
+  if ($_POST["body"] != "any") {
+    $conditions[] = "body = '" . $_POST["body"] . "'";
+  }
+  if ($_POST["gearbox"] != "any") {
+    $conditions[] = "gearbox = '" . $_POST["gearbox"] . "'";
+  }
+  if ($_POST["fuel-type"] != "any") {
+    $conditions[] = "fuelType = '" . $_POST["fuel-type"] . "'";
+  }
+  if ($_POST["car-color"] != "any") {
+    $conditions[] = "carColor = '" . $_POST["car-color"] . "'";
+  }
+  if ($_POST["emission-class"] != "any") {
+    $conditions[] = "emissionClass = '" . $_POST["emission-class"] . "'";
+  }
+
+  $sql = "SELECT * FROM shop";
+  if (!empty($conditions)) {
+      $sql .= " WHERE " . implode(" AND ", $conditions);
+  }
+
+  // Executare interogare
+  $rez = mysqli_query($con, $sql);
+
+  while ($inreg = mysqli_fetch_array($rez)) {
+    $ceva = '
+    <div class="car-card">
+        <img class="car-image" src=' . $inreg["pictureLink"] . ' alt="Ford Focus">
+        <div class="car-info">
+            <div class="car-title">' . $inreg["model"]  . $inreg["body"] . '</div>
+            <div class="car-subtitle">used</div>
+            <div class="car-price">' . $inreg["pret"] .  '€' . '</div>
+            <br><br><br><br>
+            <div class="car-location">' . $inreg["location"] .'</div>
+            <div class="car-mileage">
                 <img src="../images/kmLogo.png" alt="Odometer">
-                399 991 km
-              </div>
+                ' . $inreg["kilometers"] .'
             </div>
-          </div>
-        
+        </div>
+    </div>';
+    echo $ceva;
+}
+
+}
+?>
+
     </div>   
 
 
