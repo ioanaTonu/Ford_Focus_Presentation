@@ -21,7 +21,7 @@
         </div>
 
         <div class="formGeneral">
-            <form action="" method="post" enctype="multipart/form-data">
+            <form action="signup.php" method="post" enctype="multipart/form-data">
                 <br>
                 <h1>REGISTER</h1>
                 
@@ -57,7 +57,7 @@
                 <input type="password" name="password" value=""> <br><br>
 
                 <label for="confirm-password"> Confirm Password </label> <br>
-                <input type="confirm-password" name="confirm-password" value=""> <br><br>
+                <input type="password" name="confirm-password" value=""> <br><br>
 
                 <div class="submitButton">
                     <div class="centerDiv">
@@ -70,6 +70,52 @@
         </div>
     </div>
     
+    <?php
+    $con = mysqli_connect("localhost", "root", "");
+    if (!$con) 
+    {
+        die('Connection didn’t happen! ' . mysqli_connect_error());
+    }
+            
+    mysqli_select_db($con, "fordfocuspres");
+
+    if (isset($_POST["e-mail"])) {
+        $email = $_POST["e-mail"];
+        $sql = "SELECT * FROM utilizator WHERE eMail = '$email'";
+        $rez = mysqli_query($con,$sql);
+
+        if (mysqli_num_rows($rez) > 0) {
+            echo    '<script type="text/javascript">
+                        window.onload = function () { alert("E-mail already used!"); } 
+                    </script>';
+        }
+        else {
+            if ($_POST['password'] !== $_POST['confirm-password']) {
+                echo '<script>alert("Passwords do not match!");</script>';
+                exit();
+            }
+
+            $firstName = $_POST["first-name"];
+            $name = $_POST["name"];
+            $gender = $_POST["gender"];
+            $country = $_POST["country"];
+            $postalCode = $_POST["postal-code"];
+            $phone = $_POST["phone-number"];
+            $email = $_POST["e-mail"];
+            $hashedPassword = password_hash($_POST['password'], PASSWORD_DEFAULT);
+
+            $insertSql =    "INSERT INTO utilizator (firstName, nameN, gender, country, postalCode, phoneNumber, eMail, passwordP)
+                            VALUES ('$firstName', '$name', '$gender', '$country', '$postalCode', '$phone', '$email', '$hashedPassword')";
+
+            if (mysqli_query($con, $insertSql)) {
+                echo '<script>alert("Registration successful!");</script>';
+            } else {
+                echo '<script>alert("Error: ' . mysqli_error($con) . '");</script>';
+            }
+        }
+    }
+    ?>
+
     <!-- END MAIN -->
   <!-- FOOTER -->
   <?php include("../footer.php"); ?> 
