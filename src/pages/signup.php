@@ -102,7 +102,8 @@
             $postalCode = $_POST["postal-code"];
             $phone = $_POST["phone-number"];
             $email = $_POST["e-mail"];
-            $hashedPassword = password_hash($_POST['password'], PASSWORD_DEFAULT);
+            
+            $hashedPassword = password_hash(trim($_POST["password"]), PASSWORD_DEFAULT);
 
             $insertSql =    "INSERT INTO utilizator (firstName, nameN, gender, country, postalCode, phoneNumber, eMail, passwordP)
                             VALUES ('$firstName', '$name', '$gender', '$country', '$postalCode', '$phone', '$email', '$hashedPassword')";

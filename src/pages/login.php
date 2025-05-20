@@ -43,6 +43,45 @@
 
                 <br>
             </form>
+
+            <?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $con = mysqli_connect("localhost", "root", "", "fordfocuspres");
+
+    if (!$con) {
+        die("Connection failed: " . mysqli_connect_error());
+    }
+
+    $email = $_POST["e-mail"];
+    $password = $_POST["password"];
+
+    if (empty($email) || empty($password)) {
+        echo '<script>alert("Please enter both email and password.");</script>';
+        exit();
+    }
+
+    $sql = "SELECT * FROM utilizator WHERE eMail = '$email'";
+    $rez = mysqli_query($con, $sql);
+
+    if (mysqli_num_rows($rez) === 1) {
+        $user = mysqli_fetch_assoc($rez);
+        $storedPassword = $user["passwordP"];
+
+
+        if (password_verify(trim($password), $storedPassword)) {
+            echo '<script>alert("Login successful!");</script>';
+        } else {
+            echo '<script>alert("Incorrect password.");</script>';
+        }
+    } else {
+        echo '<script>alert("User not found.");</script>';
+    }
+
+    mysqli_close($con);
+}
+?>
+
+
         </div>
 
     </div>
