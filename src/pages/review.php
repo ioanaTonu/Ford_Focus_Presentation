@@ -26,7 +26,7 @@
         <h1> Do you have any ideas or suggestions? </h1>
         <h1> Please share them with us by filling out the form below.</h1>
 
-        <form class="formGeneral" action="" method="post" enctype="multipart/form-data">
+        <form class="formGeneral" action="review.php" method="post" enctype="multipart/form-data">
             <label for="fname">First name:</label><br>
             <input type="text" id="fname" name="fname"><br>
 
@@ -47,67 +47,90 @@
 
             <div class="submitButton">
                 <div class="centerDiv">
-                    <input type="submit" value="Submit">
+                    <input type="submit" name = "Submit" value="Submit">
                 </div>
             </div>
             <br>
         </form>
     </div>
 
-    <div class="container">
-        <h1> What others have said about us or about Ford Focus </h1>
 
-        <div class="formGeneral">
-            <!-- star rating -->
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star checked"></span>
-
-            <br>
+        <?php
+            $con = mysqli_connect("localhost", "root", "");
+            if (!$con) 
+            {
+            die('Connection didn t happen!' . mysqli_error());
+            }
             
-            <div class="flex-container-review">
+            if (isset($_POST["Submit"])) {
+            mysqli_select_db($con, "fordfocuspres");
+            if (isset($_POST["e-mail"])) {
+                $email = $_POST["e-mail"];
+                $sql = "SELECT * FROM utilizator WHERE eMail = '$email'";
+
+                $rez = mysqli_query($con,$sql);
         
-                <div class="logo-wrapper">
-                    <img src="../images/JimFarley.jpg" alt="JimReview" width="75" height="90">
-                </div>
-        
-                <div class="text-content">
-                    <h5>Jim Farley</h5>
-                </div>
-
-                <div class="text-content">
-                    <p>I think it's the best car I've ever driven. With my 2010 Ford Focus I managed to overtake a Lexus on the highway, which is saying a lot.</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="formGeneral">
-            <!-- star rating -->
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star "></span>
-
-            <br>
+                if (mysqli_num_rows($rez) <= 0) {
+                    echo    '<script type="text/javascript">
+                                window.onload = function () { alert("You have to log in first!"); } 
+                            </script>';
+                }
+                else {
+                            
+                    $firstName = $_POST["fname"];
+                    $lastName = $_POST["lname"];
+                    $email = $_POST["e-mail"];
+                    $age = $_POST["aname"];
+                    $title = $_POST["tname"];
+                    $review = $_POST["rname"];
             
-            <div class="flex-container-review">
-        
-                <div class="logo-wrapper">
-                    <img src="../images/OliverBlume.jpg" alt="OliverReview" width="75" height="90">
-                </div>
-        
-                <div class="text-content">
-                    <h5>Oliver Blume</h5>
-                </div>
+                    $insertSql =    "INSERT INTO review (firstName, lastName, eMail, age, title, review)
+                                    VALUES ('$firstName', '$lastName', '$email', '$age', '$title', '$review')";
+            
+                    if (mysqli_query($con, $insertSql)) {
+                        echo '<script>alert("Review posted successfully!");</script>';
+                    } else {
+                        echo '<script>alert("Error: ' . mysqli_error($con) . '");</script>';
+                    }
+            }}}
 
-                <div class="text-content">
-                    <p>I didn't give it 5 stars because on a test drive on the highway I overtook a Sharan with 7 people on and it was painful for me.</p>
-                </div>
-            </div>
-        </div>
+            // Executare interogare
+            
+            $sql = "SELECT * FROM review WHERE 1=1";
+            $rez = mysqli_query($con, $sql);
+
+            while ($inreg = mysqli_fetch_array($rez)) {
+                $ceva = '
+                <div class="car-card">
+                <h1> What others have said about us or about Ford Focus </h1>
+
+                <div class="formGeneral">
+
+                    <br>
+                    
+                    <div class="flex-container-review">
+                
+                        <div class="logo-wrapper">
+                            <img src="../images/person-icon-on-white-background-260nw-1699358734.jpg" alt="JimReview" width="75" height="90">
+                        </div>
+                
+                        <div class="text-content">
+                            <h5>' . $inreg["firstName"] . " " . $inreg["lastName"] .' </h5>
+                        </div>
+
+                        <div class="text-content">
+                            <h2>' . $inreg["title"] . '</h2>
+                        </div>
+
+                        <div class="text-content">
+                            <p>' . $inreg["review"] . '</p>
+                        </div>
+                    </div>
+                </div>';
+                echo $ceva;
+            }
+
+            ?>
 
     </div>
     </div>
