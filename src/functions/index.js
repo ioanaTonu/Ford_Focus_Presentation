@@ -25,6 +25,5 @@ function showSlides(n) {
   dots[slideIndex - 1].className += " active";
 }
 
-// Make functions global so they work from HTML onclick
 window.plusSlides = plusSlides;
 window.currentSlide = currentSlide;
